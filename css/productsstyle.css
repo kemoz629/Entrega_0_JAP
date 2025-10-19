@@ -19,13 +19,8 @@ body {
 .card small {
   color: black;
 }
-.card-img-top {
-  object-fit: cover;
-  height: 180px;
-  border-radius: 12px 12px 0 0;
-}
 
-.btn {
+.btnCustom {
   background: rgba(255, 255, 255, 0.15); /* Blanco translúcido */
   backdrop-filter: blur(10px); /* Efecto de desenfoque */
   border-radius: 12px;
@@ -33,7 +28,7 @@ body {
   color: gainsboro;
 }
 
-.form-control {
+.form-controlCustom {
   background: rgba(255, 255, 255, 0.15); /* Blanco translúcido */
   backdrop-filter: blur(10px); /* Efecto de desenfoque */
   border-radius: 12px;
@@ -54,6 +49,31 @@ body {
   color: black;
 }
 
+/* Spinner para imagen */
+.image-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.image-container {
+  height: 300px; /* Alto fijo para evitar saltos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa; /* Color de fondo mientras carga */
+  border-radius: 8px;
+}
+
 .btnProductInfo{
   background-color: rgb(19, 87, 22);
 }
@@ -64,6 +84,69 @@ body {
 
 .infProd{
   height: 75vh;
+}
+
+/* ========== PRODUCTOS RELACIONADOS ========== */
+
+#seccionRelacionados {
+  margin-top: 3rem;
+  padding: 0 15px;
+}
+
+#seccionRelacionados h3 {
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+#seccionRelacionados hr {
+  border-color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+/* Tarjeta de producto relacionado */
+.card-relacionado {
+  height: 100%;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* Contenedor de imagen */
+.img-relacionado {
+  height: 12rem;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem;
+}
+
+.img-relacionado img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Cuerpo de la tarjeta */
+.body-relacionado {
+  padding: 12px 15px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.titulo-relacionado {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+  line-height: 1.3;
 }
 
 /* Smartphones (hasta 767px) */
@@ -222,3 +305,97 @@ body {
 .search-container:hover .clear-search {
   display: block;
 }
+
+/** Estilos para las tarjetas de reseñas - Inicio */
+
+.contenedorReviews {
+  background: #f8f9fa;
+  transition: transform 0.2s, box-shadow 0.2s; /* Transición suave al hover */
+}
+
+.contenedorReviews:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important; /* Sombra más pronunciada */
+}
+
+/* Solo el párrafo de descripción tiene scroll */
+.contenedorReviews .review-description {
+  min-height: 4.5em; /* Altura mínima de aproximadamente 3 líneas */
+  max-height: 4.5em; /* Altura máxima de aproximadamente 3 líneas */
+  line-height: 1.5em; /* Altura de línea para calcular */
+  overflow-y: auto; /* Scroll vertical si el texto excede */
+  overflow-x: hidden; /* Sin scroll horizontal */
+  padding-right: 5px; /* Espacio para el scrollbar */
+}
+
+/* Estilo del scrollbar para que se vea más bonito */
+.contenedorReviews .review-description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.contenedorReviews .review-description::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.contenedorReviews .review-description::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.contenedorReviews .review-description::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+h4 {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff; /* blanco para resaltar sobre el fondo oscuro */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  /* sombra muy suave para que no se pierda en fondos claros */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+  margin-bottom: 1rem;
+}
+
+/** Estilos para las tarjetas de reseñas - Fin */
+
+/* Estilos para la calificación con estrellas - Inicio */
+
+/* Estrellas de calificación */
+.star-rating {
+  direction: rtl;
+  display: inline-flex;
+  font-size: 2rem;
+  justify-content: center;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0 3px;
+  transition: color 0.2s;
+}
+
+.star-rating label:before {
+  content: "\2605"; /* Estrella unicode */
+}
+
+.star-rating input:checked~label {
+  color: #ffc107;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label {
+  color: #ffda66;
+}
+
+/* Estilos para el contenedor de la calificación - Fin */
